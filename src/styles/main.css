@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: kalameh;
+    src: url('../assets/fonts/kalameh/KalamehWeb-Regular.woff') format('woff');
+}
+
+body {
+    font-family: kalameh;
+    direction: rtl;
+    text-align: right;
+}
