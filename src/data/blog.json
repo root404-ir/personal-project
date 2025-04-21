@@ -1,0 +1,44 @@
+[
+    {
+        "postId": 1,
+        "postCover": "../assets/images/blog/redux.webp",
+        "postTitle": "redux چیست؟",
+        "postText": "redux یک کتابخانه برای مدیریت وضعیت ها یا همان state ها در ری اکت میباشد",
+        "author": "محمد تفقدی"
+    },
+    {
+        "postId": 2,
+        "postTitle": "redux چیست؟",
+        "postCover": "../assets/images/blog/redux.webp",
+        "postText": "redux یک کتابخانه برای مدیریت وضعیت ها یا همان state ها در ری اکت میباشد",
+        "author": "محمد تفقدی"
+    },
+    {
+        "postId": 3,
+        "postTitle": "redux چیست؟",
+        "postCover": "../assets/images/blog/redux.webp",
+        "postText": "redux یک کتابخانه برای مدیریت وضعیت ها یا همان state ها در ری اکت میباشد",
+        "author": "محمد تفقدی"
+    },
+    {
+        "postId": 4,
+        "postTitle": "redux چیست؟",
+        "postCover": "../assets/images/blog/redux.webp",
+        "postText": "redux یک کتابخانه برای مدیریت وضعیت ها یا همان state ها در ری اکت میباشد",
+        "author": "محمد تفقدی"
+    },
+    {
+        "postId": 5,
+        "postTitle": "redux چیست؟",
+        "postCover": "../assets/images/blog/redux.webp",
+        "postText": "redux یک کتابخانه برای مدیریت وضعیت ها یا همان state ها در ری اکت میباشد",
+        "author": "محمد تفقدی"
+    },
+    {
+        "postId": 6,
+        "postTitle": "redux چیست؟",
+        "postCover": "../assets/images/blog/redux.webp",
+        "postText": "redux یک کتابخانه برای مدیریت وضعیت ها یا همان state ها در ری اکت میباشد",
+        "author": "محمد تفقدی"
+    }
+]
