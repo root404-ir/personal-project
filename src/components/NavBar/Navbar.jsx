@@ -4,6 +4,7 @@ import { CiSun } from "react-icons/ci";
 import { RiMoonClearLine } from "react-icons/ri";
 import '../../styles/navbar.css'
 import { useDark } from '../../hooks/useDarkMode';
+import Menu from './Menu';
 const Navbar = () => {
     const { darkMode, handleDarkMode } = useDark()
     return (
@@ -12,10 +13,7 @@ const Navbar = () => {
                 <div className='flex items-center justify-between h-auto rounded-2xl p-2'>
                     <img src={darkMode ? reverseLogo : logo} alt="" width={200} />
                     <ul className='flex gap-10'>
-                        <li className='nav-item'>صفحه اصلی</li>
-                        <li className='nav-item'>وبلاگ</li>
-                        <li className='nav-item'>رزومه</li>
-                        <li className='nav-item'>تماس</li>
+                        <Menu />
                     </ul>
                     <span onClick={handleDarkMode} className='cursor-pointer'>
                         {darkMode ? <CiSun className='text-3xl' /> :
