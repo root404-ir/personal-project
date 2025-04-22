@@ -1,23 +1,25 @@
-
 import { useEffect, useState } from "react"
 import { createClient } from "contentful"
-import { Link } from "react-router"
-import { IoIosArrowBack } from "react-icons/io"
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import { GetThumbnail, LoadThumbnail } from "../components/PostThumbnail"
-
+import BlogContent from "../components/BlogContent"
 const Blog = () => {
     const [posts, setPosts] = useState([])
     const [assets, setAssets] = useState([])
+    const [loading, setLoading] = useState(true)
     const client = createClient({
         space: "fulkbl2s1yqz",
         accessToken: "HTMhs9d6XgospFsw_OhKRCGKuRHoSbGxjf1xLgzTBkw"
     })
     useEffect(() => {
         client.getEntries({ content_type: 'post' }).then(res => {
-            setPosts(res.items)        
+            setPosts(res.items)
+            setLoading(false)
             LoadThumbnail(res, client, setAssets)
         })
     }, [client])
+
 
     return (
         <>
@@ -27,33 +29,27 @@ const Blog = () => {
                     <h4 className="text-4xl flex items-center">وبلاگ</h4>
                 </div>
                 <div className="grid grid-cols-3 mt-5 gap-10">
-                    {posts.map(post => {
-                        const thumbnailUrl = GetThumbnail(post.fields.thumbnail?.sys.id, assets)
-                        return (
-                            <div key={post.sys.id} className="border flex flex-col justify-between h-auto dark:border-gray-600 border-gray-300 rounded-lg">
-                                {thumbnailUrl && (
-                                    <div className="bg-white rounded-t-lg">
-                                        <img
-                                            src={thumbnailUrl}
-                                            alt={post.title}
-                                            className="mx-auto w-52"
-                                        />
-                                    </div>
-                                )}
-                                <div className="mt-5 flex flex-col gap-4 p-2">
-                                    <h4 className="text-3xl">{post.fields.title}</h4>
-                                    <p className="text-md dark:text-gray-300 text-gray-700">{post.fields.content.slice(0, 100)}...</p>
-                                    <div className="flex justify-between">
-                                        <span>توسط : <span className="text-purple-600 dark:text-green-400 font-bold">{post.fields.author}</span></span>
-                                        <span>{post.fields.data}</span>
-                                    </div>
+                    {loading ?
+                        <>
+                            {[...Array(3)].map((_, i) => (
+                                <div key={i} className="border rounded-lg p-4">
+                                    <Skeleton height={200} />
+                                    <Skeleton width={150} className="mt-4" />
+                                    <Skeleton count={2} className="mt-4" />
                                 </div>
-                                <Link to={`/blog/post/${post.fields.slug}`} className="bg-purple-600 dark:bg-green-400 p-0 w-full text-white font-bold rounded-b-lg mt-5 cursor-pointer flex items-center justify-center gap-2">
-                                    ادامه مطلب
-                                    <IoIosArrowBack /> </Link>
-                            </div>
-                        )
-                    })}
+                            ))}
+                        </>
+                        : (
+
+                            posts.map(post => {
+                                const thumbnailUrl = GetThumbnail(post.fields.thumbnail?.sys.id, assets)
+                                return (
+                                    <>
+                                        <BlogContent post={post} thumbnailUrl={thumbnailUrl} />
+                                    </>
+                                )
+                            })
+                        )}
                 </div>
             </div>
         </>
