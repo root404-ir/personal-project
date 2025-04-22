@@ -9,7 +9,7 @@ const Navbar = () => {
     const { darkMode, handleDarkMode } = useDark()
     return (
         <>
-            <div className=' absolute bg-white dark:bg-blue-950 border-b  w-full'>
+            <div className=' bg-white dark:bg-blue-950 border-b  w-full'>
                 <div className='flex items-center justify-between h-auto rounded-2xl p-2'>
                     <img src={darkMode ? reverseLogo : logo} alt="" width={200} />
                     <ul className='flex gap-10'>

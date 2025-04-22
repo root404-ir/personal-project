@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import Blog from "../components/Blog/Blog"
+import { Outlet } from "react-router"
 import Footer from "../components/Footer/Footer"
-import Header from "../components/Header/Header"
 import Navbar from "../components/NavBar/Navbar"
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
     return (
         <div>
             <Navbar />
-            <main>{children}</main>
-            <Header />
-            <Blog />
+            <main>
+                <Outlet />
+            </main>
             <Footer />
         </div>
     )

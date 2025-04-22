@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <>
             <div className="dark:bg-blue-900 bg-blue-100">
-                <div className="grid grid-cols-3 mt-10">
+                <div className="grid grid-cols-3 mt-10 container mx-auto">
                     <h4 className="text-2xl mt-10">این وبسایت شخصی من است  محمد تفقدی صفرپور برنامه نویس فول استک</h4>
                     <div className="flex flex-col items-center mt-10">
                         <h4 className="text-4xl dark:text-green-400 text-purple-600">منو</h4>

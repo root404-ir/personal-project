@@ -1,12 +1,15 @@
+import { BrowserRouter } from "react-router"
 import { DarkModeProvider } from "./contexts/DarkModeContext"
-import Home from "./pages/Home"
 import './styles/main.css'
+import MainRoutes from "./routes/MainRoutes"
 const App = () => {
   return (
     <>
-      <DarkModeProvider>
-        <Home />
-      </DarkModeProvider>
+      <BrowserRouter>
+        <DarkModeProvider>
+          <MainRoutes />
+        </DarkModeProvider>
+      </BrowserRouter>
     </>
   )
 }
