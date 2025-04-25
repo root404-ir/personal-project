@@ -9,11 +9,11 @@ const Header = () => {
     return (
         <>
             <div className={` w-full flex flex-col justify-evenly h-screen ${darkMode ? 'bg-header-dark' : 'bg-header'}`}>
-                <div className='flex items-center justify-between container mx-auto'>
-                    <div className='max-w-[60%] flex flex-col'>
+                <div className='flex flex-col gap-10 lg:gap-0 lg:flex-row items-center lg:justify-between container mx-auto'>
+                    <div className='lg:max-w-[60%] flex flex-col'>
                         <p className='text-4xl'>{text.headertext}</p>
                     </div>
-                    <div className='max-w-[40%]'>
+                    <div className='lg:max-w-[40%]'>
                         <img src={darkMode ? reverseHeaderImage : headerImage} alt="" />
                     </div>
                 </div>

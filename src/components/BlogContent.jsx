@@ -3,16 +3,16 @@ import { Link } from "react-router"
 import { JalaliDate } from "./Date"
 import { IoIosArrowBack } from "react-icons/io"
 
-const BlogContent = ({post,thumbnailUrl}) => {
+const BlogContent = ({ post, thumbnailUrl }) => {
     return (
         <>
             <div key={post.sys.id} className="border flex flex-col justify-between h-auto dark:border-gray-600 border-gray-300 rounded-lg">
                 {thumbnailUrl && (
-                    <div className="bg-white h-60 rounded-t-lg">
+                    <div className="bg-white rounded-t-lg">
                         <img
                             src={thumbnailUrl}
                             alt={post.title}
-                            className="mx-auto w-52"
+                            className="mx-auto h-60 object-contain w-full"
                         />
                     </div>
                 )}
