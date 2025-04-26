@@ -24,17 +24,17 @@ const ContactIcons = () => {
     }, [contactMenuOpen])
     return (
         <>
-            <div className="absolute left-0">
-                <div className={`bg-white telegram absolute left-1 top-1  flex justify-center items-center text-black rounded-full p-2`}>
+            <div className="absolute left-1 top-10 z-10">
+                <div title="پیام در تلگرام" className={`bg-white border border-gray-400 telegram absolute left-1 top-1  flex justify-center items-center text-black rounded-full p-2`}>
                     <FaTelegramPlane className="text-2xl" />
                 </div>
-                <div className={`bg-white call  absolute left-1 top-1 flex justify-center items-center text-black rounded-full p-2`}>
+                <div title="تماس تلفنی" className={`bg-white border border-gray-400 call  absolute left-1 top-1 flex justify-center items-center text-black rounded-full p-2`}>
                     <IoMdCall className="text-2xl" />
                 </div>
-                <div className={`bg-white github  absolute left-1 top-1 flex justify-center items-center text-black rounded-full p-2`}>
+                <div title="گیت هاب" className={`bg-white border border-gray-400 github  absolute left-1 top-1 flex justify-center items-center text-black rounded-full p-2`}>
                     <PiGithubLogoBold className="text-2xl" />
                 </div>
-                <div onClick={() => setContactMenuOpen(!contactMenuOpen)} className="bg-white cursor-pointer absolute left-0 flex justify-center items-center text-black rounded-full p-2">
+                <div onClick={() => setContactMenuOpen(!contactMenuOpen)} className="bg-white border border-gray-400 cursor-pointer absolute left-0 flex justify-center items-center text-black rounded-full p-2">
                     {contactMenuOpen ? <AiOutlineClose className="text-3xl" /> : <MdContactPhone className="text-3xl" />}
                 </div>
             </div >

@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router"
 import { DarkModeProvider } from "./contexts/DarkModeContext"
 import './styles/main.css'
 import MainRoutes from "./routes/MainRoutes"
-import PreLoader from "./components/PreLoader"
+import { PreLoader } from "./components/PreLoader"
 import { useEffect, useState } from "react"
 import { MenuProvider } from "./contexts/MenuOpenContext"
 const App = () => {

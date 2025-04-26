@@ -27,10 +27,10 @@ const BlogContent = ({ post, thumbnailUrl }) => {
                     </div>
                 </div>
                 <Link to={`/blog/post/${post.fields.slug}`} className="bg-purple-600 dark:bg-green-400 p-0 w-full text-white font-bold rounded-b-lg mt-5 cursor-pointer flex items-center justify-center gap-2">
-                    ادامه مطلب
-                    <IoIosArrowBack /> </Link>
-            </div>
-        </>
+                        ادامه مطلب
+                        <IoIosArrowBack /> </Link>
+                </div>
+            </>
     )
 }
 
