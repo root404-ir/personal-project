@@ -1,4 +1,4 @@
-import PreGif from '/assets/image/gif/37.gif'
+import PreGif from '/assets/image/gif/289.gif'
 const PreLoader = () => {
     return (
         <>
