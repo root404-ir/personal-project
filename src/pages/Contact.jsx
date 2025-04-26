@@ -1,17 +1,20 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup'
-
+import emailjs from 'emailjs-com'
 const Contact = () => {
 
-  const handleSubmit = (values) => {
-    alert('پیام شما با موفقیت ارسال شد')
-    console.log(values);
+  const handleSubmit = (values, { resetForm }) => {
+    emailjs.send('service_tgvrlqj', 'template_m5458kq', values, 'DYfc28KrSjaXAHSRr')
+      .then(response => {
+        console.log(response)
+        resetForm()
+      })
   }
 
   const validationSchema = Yup.object({
-    name: Yup.string().min(2, 'نام باید حداقل ۲ کاراکتر باشد').required('وارد کردن نام الزامی میباشد'),
+    name: Yup.string().min(2, 'نام باید حداقل 2 کاراکتر باشد').required('وارد کردن نام الزامی میباشد'),
     email: Yup.string().email('فرمت وارد شده برای ایمیل صحیح نمیباشد').required('وارد کردن ایمیل الزامی میباشد'),
-    message: Yup.string().min(10, 'حداقل تعداد کاراکتر های وارد شده برای پیام ۱۰ کاراکتر میباشد').required('وارد کردن پیام الزامی است')
+    message: Yup.string().min(10, 'حداقل تعداد کاراکتر های وارد شده برای پیام 10 کاراکتر میباشد').required('وارد کردن پیام الزامی است')
   })
 
   return (
