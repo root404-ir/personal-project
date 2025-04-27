@@ -5,6 +5,7 @@ import MainRoutes from "./routes/MainRoutes"
 import { PreLoader } from "./components/PreLoader"
 import { useEffect, useState } from "react"
 import { MenuProvider } from "./contexts/MenuOpenContext"
+import { PostOptionProvider } from "./contexts/PostOptionContext"
 const App = () => {
   const [pageLoad, setPageLoad] = useState(false)
 
@@ -24,7 +25,9 @@ const App = () => {
       <BrowserRouter>
         <DarkModeProvider>
           <MenuProvider>
-            {pageLoad ? <MainRoutes /> : <PreLoader />}
+            <PostOptionProvider>
+              {pageLoad ? <MainRoutes /> : <PreLoader />}
+            </PostOptionProvider>
           </MenuProvider>
         </DarkModeProvider>
       </BrowserRouter>

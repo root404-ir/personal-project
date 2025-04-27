@@ -1,13 +1,18 @@
 import { useParams } from "react-router"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { createClient } from "contentful"
 import { GetThumbnail, LoadThumbnail } from "../components/PostThumbnail"
 import { JalaliDate } from "../components/Date"
+import PostShare from "../components/PostShare"
+import PostOptions from "../components/PostOptions"
+import { PostOptionContext } from "../contexts/PostOptionContext"
 const Posts = () => {
     const { slug } = useParams()
 
     const [post, setPost] = useState(null)
     const [assets, setAssets] = useState([])
+    const { fontSize } = useContext(PostOptionContext)
+    const { fontWeight } = useContext(PostOptionContext)
     const client = createClient({
         space: "fulkbl2s1yqz",
         accessToken: "HTMhs9d6XgospFsw_OhKRCGKuRHoSbGxjf1xLgzTBkw"
@@ -33,8 +38,10 @@ const Posts = () => {
                 {thumbnailUrl && (
                     <img src={thumbnailUrl} alt={post.title} className="rounded-xl mb-4 w-32 mx-auto " />
                 )}
-                <p className="text-lg text-gray-800 leading-7 mt-10 dark:text-white">{post.fields.content}</p>
-            </div>
+                <p className="text-gray-800 leading-14 mt-10 dark:text-white " style={{ fontSize: `${fontSize}`, fontWeight: `${fontWeight}` }}>{post.fields.content}</p>
+                <PostShare url={window.location.href} title={post.fields.title} />
+                <PostOptions />
+            </div >
         </>
     )
 }
