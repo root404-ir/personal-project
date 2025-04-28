@@ -6,6 +6,7 @@ import { JalaliDate } from "../components/Date"
 import PostShare from "../components/PostShare"
 import PostOptions from "../components/PostOptions"
 import { PostOptionContext } from "../contexts/PostOptionContext"
+import Skeleton from "react-loading-skeleton"
 const Posts = () => {
     const { slug } = useParams()
 
@@ -23,7 +24,20 @@ const Posts = () => {
             LoadThumbnail(res, client, setAssets)
         })
     }, [client])
-    if (!post) return <p>در حال بارگزاری ...</p>
+    if (!post) return (
+        <>
+            <div className="p-4 flex flex-col gap-10">
+                <div className="flex justify-between">
+                    <Skeleton width={200} baseColor="green" />
+                    <Skeleton width={200} baseColor="green" />
+                </div>
+                <div className="flex justify-center">
+                    <Skeleton className="" width={100} height={100} baseColor="green" />
+                </div>
+                <Skeleton baseColor="green" className="my-4" count={10} />
+            </div>
+        </>
+    )
     const thumbnailUrl = GetThumbnail(post.fields.thumbnail?.sys.id, assets)
     return (
         <>

@@ -6,6 +6,7 @@ import { GetThumbnail, LoadThumbnail } from "../components/PostThumbnail"
 import BlogContent from "../components/BlogContent"
 import SearchBlog from "../components/Search/SearchBlog"
 import 'instantsearch.css/themes/algolia.css'
+import ReactPaginate from "react-paginate"
 const Blog = () => {
     const [posts, setPosts] = useState([])
     const [assets, setAssets] = useState([])
@@ -22,6 +23,16 @@ const Blog = () => {
         })
     }, [client])
 
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const postsPerPage = 3
+
+    const handlePageClick = (e) => {
+        setCurrentPage(e.selected)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+    const offset = currentPage * postsPerPage
+    const currentPost = posts.slice(offset, offset + postsPerPage)
 
     return (
         <>
@@ -46,7 +57,7 @@ const Blog = () => {
                         </>
                         : (
 
-                            posts.map(post => {
+                            currentPost.map(post => {
                                 const thumbnailUrl = GetThumbnail(post.fields.thumbnail?.sys.id, assets)
                                 return (
                                     <>
@@ -55,6 +66,25 @@ const Blog = () => {
                                 )
                             })
                         )}
+                    <div className="flex justify-center mt-8">
+                        <ReactPaginate
+                            className="flex justify-center gap-10"
+                            activeLinkClassName="text-black"
+                            previousLabel={"قبلی"}
+                            nextLabel={"بعدی"}
+                            breakLabel={"..."}
+                            pageCount={Math.ceil(posts.length / postsPerPage)}
+                            marginPagesDisplayed={2}
+                            pageRangeDisplayed={5}
+                            onPageChange={handlePageClick}
+                            containerClassName={"flex space-x-2 justify-center"}
+                            pageClassName={"px-4 py-2 rounded-full cursor-pointer bg-blue-400 hover:bg-gray-300"}
+                            activeClassName={"bg-blue-600 cursor-pointer text-white"}
+                            previousClassName={"px-4 py-2 cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
+                            nextClassName={"px-4 py-2 cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
+                            disabledClassName={"opacity-50 cursor-not-allowed"}
+                        />
+                    </div>
                 </div>
             </div>
         </>

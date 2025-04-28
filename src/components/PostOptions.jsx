@@ -1,18 +1,26 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoSettingsSharp } from "react-icons/io5";
 import { PostOptionContext } from "../contexts/PostOptionContext";
+import gsap from "gsap";
 const PostOptions = () => {
 
     const { setFontSize, setFontWeight } = useContext(PostOptionContext)
     const [settingOpen, setSettingOpen] = useState(false)
 
+    useEffect(() => {
+        if (settingOpen) {
+            gsap.to('#setting_section', { x: -100 })
+        } else {
+            gsap.to('#setting_section', { x: 0 })
+        }
+    },[settingOpen])
     return (
         <div>
             <div onClick={() => setSettingOpen(!settingOpen)} className="cursor-pointer text-white bg-black fixed top-50 p-2 rounded-full">
-                <IoSettingsSharp size={32} />
+                <IoSettingsSharp size={32} className={`${settingOpen ? 'rotate-90' : 'rotate-0'} transition-all`} />
             </div>
-            {settingOpen ? (
-                <div className="bg-white fixed flex flex-col justify-between top-60 right-20 text-black w-auto h-32 p-4 rounded-lg">
+            {settingOpen && (
+                <div id="setting_section" className="bg-white fixed flex flex-col justify-between top-60 right-0 text-black w-auto h-32 p-4 rounded-lg">
                     <p>شخصی سازی متن مقاله</p>
                     <div className="mt-5">
                         <select onChange={(e) => setFontSize(e.target.value)} className="border border-gray-500 w-full rounded-lg">
@@ -30,8 +38,6 @@ const PostOptions = () => {
                         </select>
                     </div>
                 </div>
-            ) : (
-                null
             )}
         </div>
     )

@@ -12,9 +12,7 @@ const App = () => {
   useEffect(() => {
     const handlePageLoad = () => setPageLoad(true)
     if (document.readyState === 'complete') {
-      setTimeout(() => {
-        setPageLoad(true)
-      }, 2000)
+      setPageLoad(true)
     } else {
       window.addEventListener('load', handlePageLoad)
       return () => window.removeEventListener('load', handlePageLoad)
