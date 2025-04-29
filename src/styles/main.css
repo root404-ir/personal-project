@@ -3,12 +3,12 @@
 
 @font-face {
     font-family: kalameh;
-    src: url('/assets/fonts/kalameh/KalamehWeb-Regular.woff') format('woff');
+    src: url('/fonts/kalameh/KalamehWeb-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: kalameh-num;
-    src: url('/assets/fonts/kalameh/KalamehWeb(FaNum)-Regular.woff') format('woff');
+    src: url('/fonts/kalameh/KalamehWeb-FaNum-Regular.woff') format('woff');
 }
 
 body {
