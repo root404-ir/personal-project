@@ -4,9 +4,9 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { GetThumbnail, LoadThumbnail } from "../components/PostThumbnail"
 import BlogContent from "../components/BlogContent"
-import SearchBlog from "../components/Search/SearchBlog"
-import 'instantsearch.css/themes/algolia.css'
 import ReactPaginate from "react-paginate"
+import { useSearchParams } from "react-router"
+import AutoCompleteSearch from '../components/Search/SearchBlog'
 const Blog = () => {
     const [posts, setPosts] = useState([])
     const [assets, setAssets] = useState([])
@@ -24,11 +24,18 @@ const Blog = () => {
     }, [client])
 
 
-    const [currentPage, setCurrentPage] = useState(1)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const pageFromURL = parseInt(searchParams.get('page') || 1)
+    const [currentPage, setCurrentPage] = useState(pageFromURL - 1)
     const postsPerPage = 3
 
+    useEffect(() => {
+        setCurrentPage(pageFromURL - 1)
+    }, [pageFromURL])
+
     const handlePageClick = (e) => {
-        setCurrentPage(e.selected)
+        const newPage = e.selected + 1
+        setSearchParams({ page: newPage })
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
     const offset = currentPage * postsPerPage
@@ -42,7 +49,7 @@ const Blog = () => {
                         <div className="h-10 w-1 dark:bg-green-600 bg-purple-700"></div>
                         <h4 className="text-4xl flex items-center">وبلاگ</h4>
                     </div>
-                    <SearchBlog />
+                    <AutoCompleteSearch/>
                 </div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-5 gap-10">
                     {loading ?
@@ -66,25 +73,25 @@ const Blog = () => {
                                 )
                             })
                         )}
-                    <div className="flex justify-center mt-8">
-                        <ReactPaginate
-                            className="flex justify-center gap-10"
-                            activeLinkClassName="text-black"
-                            previousLabel={"قبلی"}
-                            nextLabel={"بعدی"}
-                            breakLabel={"..."}
-                            pageCount={Math.ceil(posts.length / postsPerPage)}
-                            marginPagesDisplayed={2}
-                            pageRangeDisplayed={5}
-                            onPageChange={handlePageClick}
-                            containerClassName={"flex space-x-2 justify-center"}
-                            pageClassName={"px-4 py-2 rounded-full cursor-pointer bg-blue-400 hover:bg-gray-300"}
-                            activeClassName={"bg-blue-600 cursor-pointer text-white"}
-                            previousClassName={"px-4 py-2 cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
-                            nextClassName={"px-4 py-2 cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
-                            disabledClassName={"opacity-50 cursor-not-allowed"}
-                        />
-                    </div>
+                </div>
+                <div className="flex justify-center my-8">
+                    <ReactPaginate
+                        className="flex justify-center gap-10"
+                        activeLinkClassName="text-black"
+                        previousLabel={"قبلی"}
+                        nextLabel={"بعدی"}
+                        breakLabel={"..."}
+                        pageCount={Math.ceil(posts.length / postsPerPage)}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={handlePageClick}
+                        containerClassName={"flex space-x-2 justify-center"}
+                        pageClassName={"px-4 py-2 rounded-full cursor-pointer bg-blue-400 hover:bg-gray-300"}
+                        activeClassName={"bg-blue-600 cursor-pointer text-white"}
+                        previousClassName={"px-4 py-2 text-black cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
+                        nextClassName={"px-4 py-2 text-black cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
+                        disabledClassName={"opacity-50 cursor-not-allowed"}
+                    />
                 </div>
             </div>
         </>
