@@ -7,6 +7,7 @@ import PostShare from "../components/PostShare"
 import PostOptions from "../components/PostOptions"
 import { PostOptionContext } from "../contexts/PostOptionContext"
 import Skeleton from "react-loading-skeleton"
+import Scroll from "../components/Scroll"
 const Posts = () => {
     const { slug } = useParams()
 
@@ -55,6 +56,7 @@ const Posts = () => {
                 <p className="text-gray-800 leading-14 mt-10 dark:text-white " style={{ fontSize: `${fontSize}`, fontWeight: `${fontWeight}` }}>{post.fields.content}</p>
                 <PostShare url={window.location.href} title={post.fields.title} />
                 <PostOptions />
+                <Scroll />
             </div >
         </>
     )

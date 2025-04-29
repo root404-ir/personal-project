@@ -11,7 +11,7 @@ const SearchBlog = () => {
   const containerRef = useRef(null)
 
   useEffect(() => {
-    if (!containerRef.current) return
+    if (!containerRef.current || containerRef.current.childElementCount > 0) return
 
     autocomplete({
       container: containerRef.current,
@@ -29,10 +29,9 @@ const SearchBlog = () => {
             templates: {
               item({ item, html }) {
                 return html`
-                  <div class="p-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                  <div class="p-3 flex justify-start hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
                     <a href="/blog/post/${item.slug}" class="block">
                       <h4 class="text-lg font-bold">${item.title}</h4>
-
                     </a>
                   </div>
                 `
@@ -48,7 +47,7 @@ const SearchBlog = () => {
   }, [])
 
   return (
-    <div className="max-w-xl mx-auto mt-10">
+    <div className="max-w-xl mt-10">
       <div ref={containerRef} />
     </div>
   )
