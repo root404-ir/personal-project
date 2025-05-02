@@ -82,7 +82,7 @@ const Contact = () => {
               </div>
               <div className='flex flex-col mt-5'>
                 <label htmlFor="message">پیام</label>
-                <Field type="text" id="message" name="message" className='border border-gray-400 rounded-sm' />
+                <Field as='textarea' type="text" id="message" name="message" className='border border-gray-400 rounded-sm' />
                 <ErrorMessage name='message' component="div" className='text-red-500' />
               </div>
               {/* <div className='mt-10'>
