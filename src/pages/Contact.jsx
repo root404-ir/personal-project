@@ -58,7 +58,7 @@ const Contact = () => {
     <div className={`relative ${darkMode ? 'bg-contact-night' : 'bg-contact'}`}>
       <div className='flex flex-col items-center'>
         <ContactIcons />
-        <div className='bg-white z-10 my-10 border border-gray-300 text-black px-10 py-5 w-96 rounded-lg'>
+        <div className='bg-white z-10 md:my-10 my-20 border border-gray-300 text-black px-10 py-5 w-96 rounded-lg'>
           <h1 className='text-center text-3xl'>تماس با من</h1>
           <Formik
             initialValues={{

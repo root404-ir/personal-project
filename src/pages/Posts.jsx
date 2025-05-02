@@ -42,18 +42,18 @@ const Posts = () => {
     const thumbnailUrl = GetThumbnail(post.fields.thumbnail?.sys.id, assets)
     return (
         <>
-            <div key={post.sys.id} className="container mx-auto mt-10">
+            <div key={post.sys.id} className="container mx-auto px-2 mt-10">
                 <div className="flex justify-between items-center">
-                    <h4 className="text-4xl font-bold mb-2">{post.fields.title}</h4>
+                    <h4 className="text-xl md:text-3xl font-bold mb-2">{post.fields.title}</h4>
                     <div className="flex flex-col items-center">
-                        <p className="text-md mb-4">نویسنده: {post.fields.author}</p>
+                        <p className="text-sm md:text-md mb-4">نویسنده: {post.fields.author}</p>
                         <span className="text-md text-gray-400">{JalaliDate(post.fields.date)}</span>
                     </div>
                 </div>
                 {thumbnailUrl && (
                     <img src={thumbnailUrl} alt={post.title} className="rounded-xl mb-4 w-32 mx-auto " />
                 )}
-                <p className="text-gray-800 leading-14 mt-10 dark:text-white " style={{ fontSize: `${fontSize}`, fontWeight: `${fontWeight}` }}>{post.fields.content}</p>
+                <p className="text-gray-800 leading-14 mt-10 dark:text-white px-10" style={{ fontSize: `${fontSize}`, fontWeight: `${fontWeight}` }}>{post.fields.content}</p>
                 <PostShare url={window.location.href} title={post.fields.title} />
                 <PostOptions />
                 <Scroll />

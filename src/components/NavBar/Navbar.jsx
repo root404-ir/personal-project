@@ -54,7 +54,9 @@ const Navbar = () => {
                         <Menu />
                     </ul>
                     <div className='flex items-center gap-10'>
-                        <LuGithub className='text-3xl' />
+                        <Link to={'https://github.com/root404-ir/personal-project/tree/main/src'}>
+                            <LuGithub className='text-3xl' />
+                        </Link>
                         <span onClick={handleDarkMode} className='cursor-pointer'>
                             {darkMode ? <FiSun className='text-3xl' /> :
                                 <RiMoonClearLine className='text-3xl' />}

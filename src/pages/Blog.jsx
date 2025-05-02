@@ -43,13 +43,13 @@ const Blog = () => {
 
     return (
         <>
-            <div className="mt-5 container mx-auto">
+            <div className="mt-5 container mx-auto px-4 md:px-0">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                        <div className="h-10 w-1 dark:bg-green-600 bg-purple-700"></div>
+                        <div className="md:h-10 h-5 w-1 dark:bg-green-600 bg-purple-700"></div>
                         <h4 className="text-4xl flex items-center">وبلاگ</h4>
                     </div>
-                    <AutoCompleteSearch/>
+                    <AutoCompleteSearch />
                 </div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-5 gap-10">
                     {loading ?

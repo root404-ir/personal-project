@@ -13,29 +13,31 @@ const PostOptions = () => {
         } else {
             gsap.to('#setting_section', { x: 0 })
         }
-    },[settingOpen])
+    }, [settingOpen])
     return (
         <div>
-            <div onClick={() => setSettingOpen(!settingOpen)} className="cursor-pointer text-white bg-black fixed top-50 p-2 rounded-full">
+            <div onClick={() => setSettingOpen(!settingOpen)} className="cursor-pointer text-white bg-black fixed top-100 p-2 rounded-full">
                 <IoSettingsSharp size={32} className={`${settingOpen ? 'rotate-90' : 'rotate-0'} transition-all`} />
             </div>
             {settingOpen && (
-                <div id="setting_section" className="bg-white fixed flex flex-col justify-between top-60 right-0 text-black w-auto h-32 p-4 rounded-lg">
+                <div id="setting_section" className="bg-purple-300 dark:bg-green-300 fixed flex flex-col justify-between top-100 right-0 text-black w-auto h-auto p-4 rounded-lg">
                     <p>شخصی سازی متن مقاله</p>
-                    <div className="mt-5">
-                        <select onChange={(e) => setFontSize(e.target.value)} className="border border-gray-500 w-full rounded-lg">
-                            <option value="">سایز فونت</option>
-                            <option value={'1.2rem'} >سایز 24</option>
-                            <option value={'1.8rem'} >سایز 44</option>
-                            <option value={'2rem'} >سایز 56</option>
-                        </select>
-                    </div>
-                    <div>
-                        <select onChange={(e) => setFontWeight(e.target.value)} className="border border-gray-500 w-full rounded-lg">
-                            <option value="">میزان ضخامت متن</option>
-                            <option value={'300'}>باریک</option>
-                            <option value={'900'}>پررنگ</option>
-                        </select>
+                    <div className="flex flex-col gap-4">
+                        <div className="mt-5">
+                            <select onChange={(e) => setFontSize(e.target.value)} className="border border-gray-400 w-full rounded-lg">
+                                <option value="">سایز فونت</option>
+                                <option value={'1.2rem'} >سایز 24</option>
+                                <option value={'1.8rem'} >سایز 44</option>
+                                <option value={'2rem'} >سایز 56</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select onChange={(e) => setFontWeight(e.target.value)} className="border border-gray-400 w-full rounded-lg">
+                                <option value="">میزان ضخامت متن</option>
+                                <option value={'300'}>باریک</option>
+                                <option value={'900'}>پررنگ</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             )}

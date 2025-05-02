@@ -35,9 +35,8 @@ const PostShare = ({ url, title }) => {
         })
     }
     return (
-        <div className="dark:text-white">
-            <h4>اشتراک گذاری این پست : </h4>
-            <div className="flex items-center gap-10 my-10">
+        <div className="dark:text-white flex justify-end items-center gap-10 px-4">
+            <div className="flex justify-end items-center gap-10 my-10">
                 <WhatsappShareButton id="whatsapp" url={url} title={title} className="absolute">
                     <WhatsappIcon size={32} className="rounded-lg" />
                 </WhatsappShareButton>
@@ -50,12 +49,12 @@ const PostShare = ({ url, title }) => {
                 <EmailShareButton id="email" url={url} title={title} className="absolute">
                     <EmailIcon size={32} className="rounded-lg" />
                 </EmailShareButton>
-                <div onClick={handleCopy} id="copy-link" className={`bg-white text-black rounded-lg p-2 ${copied && 'flex items-center gap-2'}`}>
+                <div onClick={handleCopy} id="copy-link" className={`dark:bg-white bg-black text-white dark:text-black rounded-lg p-2 ${copied && 'flex items-center gap-2'}`}>
                     <FaLink size={19} />
                     <span>{copied && 'لینک کپی شد!'}</span>
                 </div>
-                <div onClick={() => setShareOpen(!shareOpen)} className="absolute cursor-pointer bg-gray-600 p-2 rounded-lg">
-                    <MdShare size={33} />
+                <div  onClick={() => setShareOpen(!shareOpen)} className="absolute cursor-pointer bg-gray-600 p-2 text-white rounded-lg">
+                    <MdShare size={33} title="اشتراک گزاری پست"/>
                 </div>
             </div>
         </div>
