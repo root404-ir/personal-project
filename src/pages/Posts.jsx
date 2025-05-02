@@ -51,7 +51,7 @@ const Posts = () => {
                     </div>
                 </div>
                 {thumbnailUrl && (
-                    <img src={thumbnailUrl} alt={post.title} className="rounded-xl mb-4 w-32 mx-auto " />
+                    <img src={thumbnailUrl} alt={post.title} className="rounded-xl mb-4 w-full h-100 object-contain mt-5 mx-auto " />
                 )}
                 <p className="text-gray-800 leading-14 mt-10 dark:text-white px-10" style={{ fontSize: `${fontSize}`, fontWeight: `${fontWeight}` }}>{post.fields.content}</p>
                 <PostShare url={window.location.href} title={post.fields.title} />
