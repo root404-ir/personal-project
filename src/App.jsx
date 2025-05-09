@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router"
-import { DarkModeProvider } from "./contexts/DarkModeContext"
 import './styles/main.css'
 import MainRoutes from "./routes/MainRoutes"
 import { PreLoader } from "./components/PreLoader"
@@ -21,13 +20,11 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <DarkModeProvider>
           <MenuProvider>
             <PostOptionProvider>
               {pageLoad ? <MainRoutes /> : <PreLoader />}
             </PostOptionProvider>
           </MenuProvider>
-        </DarkModeProvider>
       </BrowserRouter>
     </>
   )

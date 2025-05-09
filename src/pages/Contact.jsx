@@ -5,14 +5,12 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 // import ReCAPTCHA from 'react-google-recaptcha';
 import ContactIcons from '../components/ContactIcons';
-import { useDark } from '../hooks/useDarkMode';
 import { ContactPreLoader } from '../components/PreLoader';
 
 // const SITE_KEY = '6Le_biUrAAAAAPHoz2QuQwo-gQ_1sZyh3jOI3rRi'
 
 const Contact = () => {
   // const [recaptchaValue, setRecaptchaValue] = useState(null)
-  const { darkMode } = useDark()
   const [messageLoading, setMessageLoading] = useState(false)
   const handleSubmit = (values, { resetForm }) => {
     // if (!recaptchaValue) {
@@ -55,7 +53,7 @@ const Contact = () => {
   })
 
   return (
-    <div className={`relative ${darkMode ? 'bg-contact-night' : 'bg-contact'}`}>
+    <div className='relative bg-contact-night'>
       <div className='flex flex-col items-center'>
         <ContactIcons />
         <div className='bg-white z-10 md:my-10 my-20 border border-gray-300 text-black px-10 py-5 w-96 rounded-lg'>
@@ -101,7 +99,7 @@ const Contact = () => {
           </Formik>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

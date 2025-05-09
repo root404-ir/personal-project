@@ -6,7 +6,7 @@ import { IoIosArrowBack } from "react-icons/io"
 const BlogContent = ({ post, thumbnailUrl }) => {
     return (
         <>
-            <div key={post.sys.id} className="border flex flex-col justify-between h-auto dark:border-gray-600 border-gray-300 rounded-lg">
+            <div key={post.sys.id} className="border flex flex-col justify-between h-auto border-gray-600 rounded-lg">
                 {thumbnailUrl && (
                     <div className="bg-white rounded-t-lg">
                         <img
@@ -20,17 +20,17 @@ const BlogContent = ({ post, thumbnailUrl }) => {
                     <Link to={`/blog/post/${post.fields.slug}`}>
                         <h4 className="text-3xl hover:text-blue-400">{post.fields.title}</h4>
                     </Link>
-                    <p className="text-md dark:text-gray-300 text-gray-700">{post.fields.content.slice(0, 100)}...</p>
+                    <p className="text-md text-gray-300 ">{post.fields.content.slice(0, 100)}...</p>
                     <div className="flex justify-between">
-                        <span>توسط : <span className="text-purple-600 dark:text-green-400 font-bold">{post.fields.author}</span></span>
+                        <span>توسط : <span className="text-green-400 font-bold">{post.fields.author}</span></span>
                         <span>{JalaliDate(post.fields.data)}</span>
                     </div>
                 </div>
-                <Link to={`/blog/post/${post.fields.slug}`} className="bg-purple-600 dark:bg-green-400 p-0 w-full text-white font-bold rounded-b-lg mt-5 cursor-pointer flex items-center justify-center gap-2">
-                        ادامه مطلب
-                        <IoIosArrowBack /> </Link>
-                </div>
-            </>
+                <Link to={`/blog/post/${post.fields.slug}`} className="bg-green-400 p-0 w-full text-white font-bold rounded-b-lg mt-5 cursor-pointer flex items-center justify-center gap-2">
+                    ادامه مطلب
+                    <IoIosArrowBack /> </Link>
+            </div>
+        </>
     )
 }
 
