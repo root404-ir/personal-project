@@ -27,7 +27,7 @@ const Blog = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const pageFromURL = parseInt(searchParams.get('page') || 1)
     const [currentPage, setCurrentPage] = useState(pageFromURL - 1)
-    const postsPerPage = 3
+    const postsPerPage = 6
 
     useEffect(() => {
         setCurrentPage(pageFromURL - 1)
@@ -86,8 +86,8 @@ const Blog = () => {
                         pageRangeDisplayed={5}
                         onPageChange={handlePageClick}
                         containerClassName={"flex space-x-2 justify-center"}
-                        pageClassName={"px-4 py-2 rounded-full cursor-pointer bg-blue-400 hover:bg-gray-300"}
-                        activeClassName={"bg-blue-600 cursor-pointer text-white"}
+                        pageClassName={"px-4 py-2 rounded-full cursor-pointer bg-gray-400 hover:bg-gray-300"}
+                        activeClassName={"bg-green-400 cursor-pointer text-white"}
                         previousClassName={"px-4 py-2 text-black cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
                         nextClassName={"px-4 py-2 text-black cursor-pointer rounded-full bg-gray-300 hover:bg-gray-400"}
                         disabledClassName={"opacity-50 cursor-not-allowed"}
