@@ -1,4 +1,4 @@
-import reverseLogo from '../../assets/images/logo/mts-removebg-preview (1)-modified.png'
+import Logo from '../../assets/images/logo/logo.webp'
 import '../../styles/navbar.css'
 import { LuGithub } from "react-icons/lu";
 import Menu from './Menu';
@@ -34,7 +34,7 @@ const Navbar = () => {
                         <CgMenuGridO className='text-4xl' />
                     </div>
                     <Link to={'/'}>
-                        < img src={reverseLogo} alt="" width={200} />
+                        < img src={Logo} alt="" width={200} />
                     </Link>
 
                     {isMenuOpen && <ul className={`${isNavFixed && 'h-screen'} lg:hidden absolute text-black top-0 z-50 bg-white h-full right-0 flex flex-col items-center gap-10 p-10`}>

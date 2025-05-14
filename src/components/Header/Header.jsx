@@ -1,6 +1,6 @@
 import text from '../../data/text.json'
 // import headerImage from '../../assets/images/logo/mts-removebg-preview (1).png'
-import reverseHeaderImage from '../../assets/images/logo/mts-removebg-preview (1)-modified.png'
+import HeaderImage from '../../assets/images/logo/logo.webp'
 import '../../styles/header.css'
 import Icons from './Icons'
 import gsap from 'gsap'
@@ -24,7 +24,7 @@ const Header = () => {
                         <p id='header-text' className='text-4xl text-center leading-20 md:text-right'></p>
                     </div>
                     <div className='lg:max-w-[40%]'>
-                        <img src={reverseHeaderImage} alt="logo" className='w-48 md:w-full' />
+                        <img src={HeaderImage} alt="logo" className='w-48 md:w-full' />
                     </div>
                 </div>
                 <div className=' w-full px-4'>

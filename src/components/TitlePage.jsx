@@ -5,7 +5,7 @@ const TitlePage = () => {
     const location = useLocation()
     const pathname = location.pathname
 
-    let mainTitle = 'وبسایت محمد تفقدی'
+    let mainTitle = 'وبلاگ شخصی محمد تفقدی'
 
     if (pathname === '/') {
         mainTitle = 'خانه'
@@ -19,7 +19,7 @@ const TitlePage = () => {
     return (
         <>
             <Helmet>
-                <title>وبسایت محمد تفقدی - {mainTitle}</title>
+                <title>وبلاگ شخصی محمد تفقدی - {mainTitle}</title>
             </Helmet>
         </>
     )
